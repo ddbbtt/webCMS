@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <title>login</title>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="css/login.css">
+<style type="text/css">
+</style>
+</head>
+<body>
+
+
+<div class="wrapper">
+
+	<div class="container">
+		<h1>web CMS</h1>
+		<form class="form">
+			<input type="text" placeholder="Username">
+			<div id="id"><a href="http://www.baidu.com/" class="link">没有账号?</a></div>
+			<input type="password" placeholder="Password">
+			<div id="pwd"><a href="http://www.baidu.com/" class="link">忘记密码?</a></div>
+            <!-- <button type="submit" id="login-button">Login</button> -->
+            <button type="button" id="login-button">Login</button>
+
+		</form>
+	</div>
+	
+</div>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$("input").focus(function(event){
+	if(this.type=="text"){
+		$("#id").css('display','block');
+		
+	}else{
+		$("#pwd").css('display','block');		
+	}
+})
+$("input").blur(function(event){
+	if(this.type=="text"){
+		setTimeout(function(){$("#id").css('display','none');},100);
+	}else{
+		setTimeout(function(){$("#pwd").css('display','none');},100);
+	}
+})
+$('#login-button').click(function(event){
+	var id=$('input[type="text"]').val();
+	var pwd=$('input[type="password"]').val();
+	if(id.trim()=="admin" && pwd.trim()=="admin"){
+        // window.open("data.html");
+        window.location.href="data.html";
+
+	}
+});
+</script>
+
+</body>
+</html>
